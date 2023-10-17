@@ -1,0 +1,130 @@
+@import "../../mixins/mixin";
+@import "../../mixins/mini";
+@import "../../mixins/disable-mob-hover";
+@import "../../mixins/pseudo-hover";
+
+.success {
+  padding: rem(128) rem(32) rem(32) rem(32);
+
+  max-width: rem(676);
+
+  border-radius: var(--radius-secondary);
+
+  @include mediaBigDesktop {
+    padding: big(128) big(32) big(32) big(32);
+
+    max-width: big(676);
+  }
+
+  @include mediaMobile {
+    padding: rem(128) rem(16) rem(16) rem(16);
+  }
+
+  & .f-button.is-close-btn {
+    top: rem(16);
+    right: rem(16);
+
+    width: rem(56);
+    height: rem(56);
+
+    border-radius: var(--radius-common);
+    border: 2px solid var(--black-color);
+
+    background-color: var(--white-color);
+
+    transition: background-color var(--animation-timing) var(--cubic-bezier),
+      color var(--animation-timing) var(--cubic-bezier),
+      border-color var(--animation-timing) var(--cubic-bezier);
+
+    & svg {
+      width: rem(24);
+      height: rem(24);
+
+      stroke: var(--black-color);
+
+      transition: stroke var(--animation-timing) var(--cubic-bezier);
+    }
+
+    @include hover {
+      & {
+        background-color: var(--accent-color);
+        border-color: var(--accent-color);
+
+        & svg {
+          stroke: var(--white-color);
+        }
+      }
+    }
+
+    @include mediaMobile {
+      top: rem(16) !important;
+      right: rem(16) !important;
+    }
+  }
+
+  &__picture {
+    margin-bottom: rem(24);
+
+    @include mediaBigDesktop {
+      margin-bottom: big(24);
+    }
+
+    @include mediaMobile {
+      display: none;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: rem(25);
+
+    font-family: var(--font-secondary);
+    font-size: rem(72);
+    font-weight: 700;
+    color: var(--black-color);
+
+    @include mediaBigDesktop {
+      margin-bottom: big(25);
+
+      font-size: big(72);
+    }
+
+    @include mediaMobile {
+      font-size: rem(40);
+    }
+  }
+
+  &__description {
+    margin: 0;
+    margin-bottom: rem(64);
+
+    font-size: rem(20);
+    font-weight: 500;
+    color: var(--black-color);
+
+    @include mediaBigDesktop {
+      margin-bottom: big(64);
+
+      font-size: big(20);
+    }
+
+    @include mediaMobile {
+      font-size: rem(16);
+    }
+  }
+
+  &__button {
+    width: 100%;
+
+    font-size: rem(32);
+    font-weight: 500;
+
+    @include mediaBigDesktop {
+      font-size: big(32);
+    }
+
+    @include mediaMobile {
+      font-size: rem(20);
+    }
+  }
+}

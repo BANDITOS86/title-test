@@ -1,0 +1,19 @@
+.logo {
+  color: var(--black-color);
+  font-family: var(--font-secondary);
+  font-size: rem(36);
+  font-weight: 700;
+  white-space: nowrap;
+  
+  transition: color var(--animation-timing) var(--cubic-bezier);
+
+  user-select: none;
+
+  @include mediaBigDesktop {
+    font-size: big(36);
+  }
+
+  @include hover {
+    color: var(--accent-color);
+  }
+}

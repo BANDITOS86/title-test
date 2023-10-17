@@ -1,0 +1,17 @@
+@mixin hover {
+  @media (any-hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin hover-focus {
+  @media (any-hover: hover) {
+    &:hover,
+    &:focus {
+      outline: none;
+      @content;
+    }
+  }
+}

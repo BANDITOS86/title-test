@@ -1,0 +1,141 @@
+.checkboxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: rem(8);
+
+  &__label {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    cursor: pointer;
+    user-select: none;
+
+    &-checkbox {
+      position: absolute;
+      z-index: -1;
+
+      opacity: 0;
+
+      &:checked ~ .checkboxes__label-content .checkboxes__label-content-button,
+      &:checked ~ .checkboxes__label-content {
+        position: relative;
+
+        color: var(--white-color);
+
+        background-color: var(--black-color);
+
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    &-content {
+      padding: rem(8) rem(32);
+
+      min-height: rem(44);
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: rem(8);
+
+      border-radius: rem(20);
+      border: 2px solid var(--black-color);
+
+      &-button {
+        padding: 0;
+
+        position: absolute;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: rem(22);
+        height: rem(22);
+
+        background-color: var(--white-color);
+        border: none;
+        border-radius: 100%;
+
+        color: var(--black-color);
+        font-size: rem(24);
+        font-weight: 500;
+
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity var(--animation-timing) var(--cubic-bezier),
+          visibility var(--animation-timing) var(--cubic-bezier);
+
+        cursor: pointer;
+
+        & svg {
+          padding: rem(6);
+
+          width: rem(22);
+          height: rem(22);
+
+          background-color: var(--white-color);
+
+          border-radius: 100%;
+
+          transition: background-color var(--animation-timing)
+            var(--cubic-bezier);
+
+          & path {
+            transition: stroke var(--animation-timing) var(--cubic-bezier);
+          }
+
+          &:hover {
+            background-color: var(--accent-color);
+
+            & path {
+              stroke: var(--white-color);
+            }
+          }
+        }
+      }
+
+      @include mediaBigTablet {
+        & {
+          padding: rem(8) rem(24);
+
+          min-height: rem(35);
+
+          &-button {
+            font-size: rem(16);
+          }
+        }
+      }
+    }
+  }
+
+  @include mediaBigDesktop {
+    gap: big(8);
+
+    &__label {
+      &-content {
+        padding: big(8) big(32);
+
+        height: big(44);
+        gap: big(8);
+
+        font-size: big(24);
+
+        border-radius: big(20);
+
+        &-button {
+          width: big(22);
+          height: big(22);
+
+          & svg {
+            padding: big(6);
+
+            width: big(22);
+            height: big(22);
+          }
+        }
+      }
+    }
+  }
+}

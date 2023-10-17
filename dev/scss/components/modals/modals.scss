@@ -1,0 +1,412 @@
+@import "../../mixins/mixin";
+@import "../../mixins/mini";
+@import "../../mixins/disable-mob-hover";
+@import "../../mixins/pseudo-hover";
+
+.modal {
+  padding: rem(48) rem(32) rem(32) rem(32);
+
+  max-width: rem(676);
+
+  background-color: var(--white-color);
+  border-radius: var(--radius-secondary);
+
+  @include mediaMobile {
+    padding: rem(48) rem(16) rem(16) rem(16);
+  }
+
+  & .f-button.is-close-btn {
+    top: rem(16);
+    right: rem(16);
+
+    width: rem(56);
+    height: rem(56);
+
+    border-radius: var(--radius-common);
+    border: 2px solid var(--black-color);
+
+    background-color: var(--white-color);
+
+    transition: background-color var(--animation-timing) var(--cubic-bezier),
+      color var(--animation-timing) var(--cubic-bezier),
+      border-color var(--animation-timing) var(--cubic-bezier);
+
+    & svg {
+      width: rem(24);
+      height: rem(24);
+
+      stroke: var(--black-color);
+
+      transition: stroke var(--animation-timing) var(--cubic-bezier);
+    }
+
+    @include hover {
+      & {
+        background-color: var(--accent-color);
+        border-color: var(--accent-color);
+
+        & svg {
+          stroke: var(--white-color);
+        }
+      }
+    }
+
+    @include mediaMobile {
+      top: rem(16)!important;
+      right: rem(16)!important;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: rem(64);
+
+    font-family: var(--font-secondary);
+    font-size: rem(72);
+    font-weight: 700;
+    color: var(--black-color);
+
+    @include mediaMobile {
+        font-size: rem(40);
+      }
+  }
+
+  &__description {
+    margin: 0;
+    margin-bottom: rem(24);
+
+    font-size: rem(20);
+    font-weight: 500;
+    color: var(--black-color);
+
+     @include mediaMobile {
+        font-size: rem(16);
+      }
+  }
+
+  @include mediaBigDesktop {
+    padding: big(48) big(32) big(32) big(32);
+
+    max-width: bih(676);
+
+    & .f-button.is-close-btn {
+      top: big(16);
+      right: big(16);
+
+      width: big(56);
+      height: big(56);
+
+      & svg {
+        width: big(24);
+        height: big(24);
+      }
+    }
+
+    &__title {
+      margin-bottom: big(64);
+
+      font-size: big(72);
+    }
+
+    &__description {
+      margin-bottom: big(24);
+
+      font-size: big(20);
+
+     
+    }
+  }
+
+  & .form {
+    width: 100%;
+
+    &__wrapper {
+      display: flex;
+      gap: rem(24);
+
+      @include mediaMobile {
+        margin-bottom: rem(24);
+
+        flex-direction: column;
+      }
+    }
+
+    &__label {
+      position: relative;
+
+      width: 100%;
+    }
+
+    &__input {
+      padding: rem(8) 0;
+
+      width: 100%;
+      height: rem(54);
+
+      font-size: rem(32);
+      font-weight: 500;
+      color: var(--black-color);
+
+      border: none;
+      border-bottom: 2px solid var(--black-color);
+      outline: none;
+
+      &-comment {
+        border-bottom: none;
+      }
+
+      &::placeholder {
+        opacity: 0.3;
+      }
+
+      &[type="file"] {
+        display: none;
+      }
+
+      @include mediaMobile {
+        font-size: rem(24);
+      }
+    }
+
+    & .form_add {
+      margin-bottom: rem(64);
+      display: flex;
+      border-bottom: 2px solid var(--black-color);
+
+      @include mediaBigDesktop {
+        margin-bottom: big(64);
+      }
+    }
+
+    &__custom {
+      &-file {
+        &-input {
+          display: flex;
+          align-items: center;
+          gap: rem(8);
+
+          &-button {
+            padding: rem(6) rem(8);
+
+            display: flex;
+            align-items: center;
+            gap: rem(10);
+
+            font-size: 20px;
+            font-weight: 500;
+            color: var(--white-color);
+
+            border-radius: var(--radius-third);
+
+            @include mediaSmallTablet {
+              &-text {
+                display: none;
+              }
+            }
+          }
+        }
+
+        &-error {
+          display: none;
+        }
+      }
+    }
+
+    @include mediaBigDesktop {
+      &__wrapper {
+        gap: big(24);
+      }
+
+      &__input {
+        padding: rem(8) 0;
+
+        gap: big(8);
+
+        height: big(54);
+      }
+
+      &__custom {
+        &-file {
+          &-input {
+            &-button {
+              padding: big(6) big(8);
+
+              gap: big(10);
+            }
+          }
+        }
+      }
+    }
+
+    &__description {
+      margin: 0;
+      margin-bottom: rem(24);
+
+      padding: 0;
+
+      font-family: Raleway;
+      font-size: rem(20);
+      font-weight: 500;
+      color: var(--black-color);
+
+      @include mediaBigDesktop {
+        margin-bottom: big(24);
+
+        font-size: big(20);
+      }
+
+      @include mediaMobile {
+        font-size: rem(16);
+      }
+    }
+
+    &__radio {
+      display: inline-flex;
+
+      cursor: pointer;
+
+      &-wrapper {
+        margin-bottom: rem(64);
+
+        display: flex;
+        flex-wrap: wrap;
+        gap: rem(8);
+
+        @include mediaBigDesktop {
+          margin-bottom: big(64);
+
+          gap: big(8);
+        }
+      }
+
+      &-input {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+
+        &:checked ~ .form__radio-content {
+          color: var(--white-color);
+          background-color: var(--black-color);
+        }
+
+        &:checked
+          ~ .form__radio-content
+          > .form__radio-content-button
+          > .form__radio-content-button-dot {
+          background-color: var(--black-color);
+
+          &:hover {
+            background-color: var(--accent-color);
+          }
+        }
+      }
+      &-content {
+        padding: rem(8) rem(32);
+
+        display: flex;
+        align-items: center;
+        gap: rem(8);
+        width: 100%;
+        min-height: rem(44);
+        height: 100%;
+
+        font-size: rem(24);
+        font-weight: 500;
+        color: var(--black-color);
+        background-color: var(--white-color);
+
+        transition: background-color var(--animation-timing) var(--cubic-bezier),
+          color var(--animation-timing) var(--cubic-bezier);
+
+        border-radius: rem(20);
+        border: 2px solid var(--black-color);
+
+        &-button {
+          padding: 0;
+          width: rem(24);
+          height: rem(24);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          background-color: var(--white-color);
+          border-radius: 100%;
+          border: 2px solid var(--black-color);
+          cursor: pointer;
+
+          &-dot {
+            width: rem(16);
+            height: rem(16);
+            background-color: var(--white-color);
+            border-radius: 100%;
+            transition: background-color var(--animation-timing)
+              var(--cubic-bezier);
+
+            &:hover {
+              background-color: var(--accent-color);
+            }
+          }
+
+          @include mediaMobile {
+            width: rem(17);
+            height: rem(17);
+
+            &-dot {
+              width: rem(9);
+              height: rem(9);
+            }
+          }
+        }
+
+        @include mediaBigDesktop {
+          padding: big(8) big(32);
+
+          gap: big(8);
+          height: big(44);
+
+          font-size: big(24);
+          border-radius: big(20);
+        }
+
+        @include mediaTablet {
+          padding: rem(8) rem(24);
+
+          min-height: rem(35);
+
+          font-size: rem(16);
+        }
+
+        @include mediaMobile {
+          padding: rem(8) rem(24);
+
+          min-height: rem(35);
+        }
+      }
+
+      @include mediaBigDesktop {
+        gap: big(8);
+      }
+    }
+
+    &__button {
+      width: 100%;
+
+      font-size: rem(32);
+
+      @include mediaBigDesktop {
+        font-size: big(32);
+      }
+
+      @include mediaMobile {
+        font-size: rem(20);
+      }
+    }
+
+    & .error {
+      border-bottom-color: var(--error-color);
+    }
+    & .error-placeholder::placeholder {
+      color: var(--error-color);
+    }
+  }
+}

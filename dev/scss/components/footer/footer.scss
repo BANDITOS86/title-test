@@ -1,0 +1,159 @@
+@import "../../mixins/mixin";
+@import "../../mixins/mini";
+@import "../../mixins/disable-mob-hover";
+@import "../../mixins/pseudo-hover";
+
+.footer {
+  padding-top: rem(32);
+  padding-bottom: rem(32);
+
+  background-color: var(--black-color);
+
+  border-radius: var(--radius-secondary) var(--radius-secondary) 0 0;
+
+  @include mediaBigDesktop {
+    padding-top: big(32);
+    padding-bottom: big(32);
+  }
+
+  &__container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    @include mediaLaptop {
+      align-items: flex-start;
+      flex-direction: column-reverse;
+      gap: rem(48);
+
+      @include mediaBigDesktop {
+        gap: big(48);
+      }
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: rem(32);
+
+    @include mediaBigDesktop {
+      gap: big(32);
+    }
+  }
+
+  &__contacts {
+    display: flex;
+    gap: rem(48);
+
+    @include mediaBigDesktop {
+      gap: big(48);
+    }
+
+    &-label {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      gap: rem(16);
+
+      @include mediaBigDesktop {
+        gap: big(16);
+      }
+    }
+
+    &-title {
+      color: var(--white-color);
+      font-size: rem(20);
+      font-weight: 500;
+
+      @include mediaBigDesktop {
+        font-size: big(20);
+      }
+
+      @include mediaSmallTablet {
+        font-size: rem(16);
+      }
+    }
+
+    &-contact {
+      color: var(--white-color);
+      font-family: var(--font-secondary);
+      font-size: rem(48);
+      font-weight: 700;
+      text-decoration-line: underline;
+      transition: color var(--animation-timing) var(--cubic-bezier);
+      white-space: nowrap;
+
+      @include mediaBigDesktop {
+        font-size: big(48);
+      }
+
+      @include hover {
+        color: var(--accent-color);
+      }
+
+      @include mediaSmallTablet {
+        font-size: rem(24);
+      }
+    }
+
+    @include mediaBigTablet {
+      flex-direction: column;
+      gap: rem(32);
+    }
+  }
+
+  &__social {
+
+    &-item {
+      width: rem(342);
+      height: rem(72);
+      
+      border-radius: var(--radius-secondary);
+
+      &-tiktok {
+        background-color: var(--black-color);
+        border: rem(0.1) solid grey;
+      }
+
+      &-vk {
+        background-color: var(--vk-color);
+      }
+
+      &-telegram {
+        background-color: var(--telegram-color);
+      }
+
+      @include mediaBigDesktop {
+        width: big(342);
+        height: big(72);
+
+        &-tiktok {
+          border: big(0.1) solid var(--gray-color);
+        }
+      }
+
+      @include mediaBigTablet {
+        width: rem(246);
+      }
+
+      @include media(#{rem(820)}) {
+        width: rem(150);
+      }
+
+      @include mediaSmallTablet {
+        width: rem(94);
+        height: rem(36);
+      }
+    }
+
+    @include mediaMobile {
+      gap: rem(2);
+    }
+  }
+
+  &__logo {
+    color: var(--white-color);
+  }
+}

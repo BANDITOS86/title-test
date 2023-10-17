@@ -1,0 +1,7 @@
+@function rem($pixels) {
+  @return #{$pixels/16}rem;
+}
+
+@function big($pixels) {
+  @return calc(#{$pixels} / 1996 * 100 * 1vw);
+}

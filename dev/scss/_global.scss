@@ -1,0 +1,169 @@
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.page {
+  height: 100%;
+  font-family: var(--font-primary);
+  -webkit-text-size-adjust: 100%;
+}
+
+.main {
+  margin-top: rem(64);
+
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  @include mediaBigDesktop {
+    margin-top: big(64);
+  }
+
+  @include mediaSmallTablet {
+    margin-top: rem(56);
+  }
+}
+
+::selection {
+  background: var(--accent-color);
+  color: var(--white-color);
+}
+
+::-moz-selection {
+  background: var(--accent-color);
+  color: var(--white-color);
+}
+
+.page__body {
+  margin: 0;
+
+  min-width: 320px;
+  min-height: 100%;
+
+  font-size: #{rem(16)};
+
+  background-color: var(--background-color);
+
+  @include mediaBigDesktop {
+    font-size: big(16);
+  }
+}
+
+.disable-scroll {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.wrapper {
+  position: relative;
+  z-index: 1;
+
+  min-height: 100vh;
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+}
+
+.footer {
+  margin-top: auto;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.input {
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  border-radius: 0;
+  background-color: var(--white-color);
+
+  &::-webkit-search-decoration,
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-results-button,
+  &::-webkit-search-results-decoration {
+    display: none;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  clip: rect(0 0 0 0);
+}
+
+.container {
+  margin: 0 auto;
+
+  padding: 0 var(--container-offset);
+  max-width: var(--container-width);
+
+  &-narrow {
+    margin: 0 auto;
+
+    max-width: var(--container-width-narrow);
+  }
+}
+
+.reset-styles {
+  margin: 0;
+  padding: 0;
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+
+  transform: opacity var(--animation-timing) var(--cubic-bezier);
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  padding: 0;
+  margin: 0;
+}
+
+.text {
+  margin: 0;
+
+  padding: 0;
+
+  color: var(--black-color);
+  text-decoration: none;
+}
+
+.list-reset {
+  margin: 0;
+
+  padding: 0;
+
+  list-style: none;
+}

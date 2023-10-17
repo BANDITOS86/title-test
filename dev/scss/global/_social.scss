@@ -1,0 +1,32 @@
+.social {
+  display: flex;
+  gap: rem(8);
+
+  @include mediaBigDesktop {
+    gap: big(8);
+  }
+
+  &__item {
+    width: rem(40);
+    height: rem(40);
+    display: block;
+
+    text-decoration: none;
+
+    border-radius: var(--radius-infinity);
+    overflow: hidden;
+
+    @include mediaBigDesktop {
+      width: big(40);
+      height: big(40);
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    
+    object-fit: contain;
+    object-position: center;
+  }
+}

@@ -1,0 +1,50 @@
+:root {
+  --font-primary: "Raleway", sans-serif;
+  --font-secondary: "Neue Machina", sans-serif;
+  --content-width: #{rem(1900)};
+  --container-offset: #{rem(48)};
+  --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
+  --container-width-narrow: #{rem(1440)};
+
+  @include mediaBigDesktop {
+    --content-width: #{big(1900)};
+    --container-offset: #{big(48)};
+    --container-width-narrow: #{big(1440)};
+  }
+
+  @include mediaMobile {
+    --container-offset: #{rem(16)};
+  }
+
+  // colors
+  --accent-color: #9e00ff;
+  --accent-color-light: #e9c4ff;
+  --accent-color-light-v2: #f0d9ff;
+  --error-color: #ff004c;
+  --light-color: #f2f2f2;
+  --background-color: #f9efff;
+  --white-color: #ffffff;
+  --black-color: #000000;
+  --vk-color: #4D76A1;
+  --telegram-color: #34AADF;
+  --gray-color: #808080;
+
+  // animation
+  --animation-timing: 0.15s;
+  --animation-timing-medium: 0.3s;
+  --animation-timing-long: 0.6s;
+  --cubic-bezier: cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  // border-radius
+  --radius-common: #{rem(16)};
+  --radius-secondary: #{rem(32)};
+  --radius-third: #{rem(8)};
+  --radius-infinity: #{rem(1600)};
+
+  @include mediaBigDesktop {
+    --radius-common: #{big(16)};
+    --radius-secondary: #{big(32)};
+    --radius-third: #{big(8)};
+    --radius-infinity: #{big(1600)};
+  }
+}

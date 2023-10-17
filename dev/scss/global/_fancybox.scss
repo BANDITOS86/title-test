@@ -1,0 +1,14 @@
+.fancybox {
+  &__container {
+    --fancybox-zIndex: 9;
+  }
+  &__backdrop {
+    --fancybox-bg: rgba(247, 235, 255, 0.5);
+    
+    backdrop-filter: blur(rem(100));
+
+    @include mediaBigDesktop {
+      backdrop-filter: blur(big(100));
+    }
+  }
+}

@@ -1,0 +1,23 @@
+@mixin pseudo($pixel) {
+  content: "";
+  position: absolute;
+  top: -#{rem($pixel)};
+  left: -#{rem($pixel)};
+
+  width: calc(100% + #{rem($pixel)} * 2);
+  height: calc(100% + #{rem($pixel)} * 2);
+
+  background-color: transparent;
+
+  opacity: 0;
+
+  @include mediaBigDesktop {
+    top: #{big(-$pixel)};
+    left: #{big(-$pixel)};
+  
+    width: calc(100% + #{big($pixel)} * 2);
+    height: calc(100% + #{big($pixel)} * 2);
+  }
+
+  @content;
+}

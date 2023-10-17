@@ -1,0 +1,93 @@
+.radio {
+  display: flex;
+  flex-wrap: wrap;
+  gap: rem(8);
+
+  &__label {
+    cursor: pointer;
+
+    &-input {
+      position: absolute;
+      z-index: -1;
+      opacity: 0;
+
+      &:checked ~ .radio__label-content {
+        color: var(--white-color);
+        background-color: var(--black-color);
+      }
+
+      &:checked ~ .radio__label-content > .radio__label-content-button > .radio__label-content-button-dot {
+        background-color: var(--black-color);
+
+        &:hover {
+          background-color: var(--accent-color);
+        }
+      }
+    }
+
+    &-content {
+      padding: rem(8) rem(32);
+
+      display: flex;
+      align-items: center;
+      gap: rem(8);
+      width: 100%;
+      min-height: rem(44);
+      height: 100%;
+
+      font-size: rem(24);
+      font-weight: 500;
+      color: var(--black-color);
+      background-color: var(--white-color);
+
+      transition: background-color var(--animation-timing) var(--cubic-bezier), color var(--animation-timing) var(--cubic-bezier);
+
+      border-radius: rem(20);
+      border: 2px solid var(--black-color);
+
+      &-button {
+        padding: 0;
+        width: rem(24);
+        height: rem(24);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background-color: var(--white-color);
+        border-radius: 100%;
+        border: 2px solid var(--black-color);
+        cursor: pointer;
+
+        &-dot {
+          width: rem(16);
+          height: rem(16);
+          background-color: var(--white-color);
+          border-radius: 100%;
+          transition: background-color var(--animation-timing) var(--cubic-bezier);
+
+          &:hover {
+            background-color: var(--accent-color);
+          }
+        }
+      }
+
+      @include mediaBigDesktop {
+        padding: big(8) big(32);
+
+        gap: big(8);
+        height: big(44);
+
+        font-size: big(24);
+        border-radius: big(20);
+      }
+
+      @include mediaTablet {
+        padding: rem(8) rem(24);
+
+        min-height: rem(35);
+
+        font-size: rem(16);
+      }
+    }
+  }
+}

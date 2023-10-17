@@ -1,0 +1,88 @@
+.burger {
+  position: relative;
+
+  display: none;
+  width: rem(133);
+  height: rem(23);
+
+  border: none;
+  border-radius: var(--radius-secondary);
+  background-color: var(--black-color);
+  
+  cursor: pointer;
+
+  &__line,
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+
+    display: block;
+    width: calc(100% - #{rem(8)} * 2);
+    height: 1px;
+
+    background-color: var(--white-color);
+  }
+
+  &:before {
+    top: rem(-5);
+  }
+
+  &:after {
+    bottom: rem(-5);
+  }
+
+  &__tilt {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: rem(24);
+    bottom: 0;
+    margin: auto;
+
+    box-sizing: content-box;
+    height: 0;
+    width: 1px;
+
+    background-color: var(--white-color);
+    border: 1px solid var(--black-color);
+    transform: rotate(45deg);
+
+    transition: height var(--animation-timing) var(--cubic-bezier),
+      opacity var(--animation-timing) var(--cubic-bezier),
+      visibility var(--animation-timing) var(--cubic-bezier);
+
+    opacity: 0;
+    visibility: hidden;
+
+    &:last-child {
+      left: unset;
+      right: rem(24);
+    }
+  }
+
+  @include mediaTablet {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: rem(3);
+  }
+
+  &_active {
+    & .burger {
+      &__tilt {
+        height: rem(18);
+
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+}

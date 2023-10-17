@@ -1,0 +1,49 @@
+.button {
+  margin: 0;
+
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+  
+  background: none;
+  border: none;
+  border-radius: 0;
+  
+  cursor: pointer;
+
+  &_primary {
+    padding: rem(12) rem(32);
+
+    color: var(--white-color);
+    font-size: rem(20);
+    font-weight: 600;
+    white-space: nowrap;
+
+    background-color: var(--black-color);
+    border-radius: var(--radius-common);
+
+    transition: background-color var(--animation-timing) var(--cubic-bezier);
+
+    @include mediaBigDesktop {
+      padding: big(12) big(32);
+
+      font-size: big(20);
+    }
+
+    @include mediaMobile {
+      padding: rem(8) rem(32);
+
+      font-size: rem(16);
+
+      border-radius: var(--radius-third);
+    }
+
+    @include hover {
+      background-color: var(--accent-color);
+    }
+  }
+}
